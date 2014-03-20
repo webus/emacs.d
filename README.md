@@ -19,6 +19,7 @@ config adds improved defaults and extended support for the following:
 * Haskell
 * Erlang
 * Common Lisp (with Slime)
+* Go (golang)
 
 In particular, there's a nice config for *tab autocompletion*, and
 flycheck is used to immediately highlight syntax errors in Ruby, HAML,
