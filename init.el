@@ -83,6 +83,7 @@
 (require 'init-elixir)
 (require 'init-emmet)
 
+
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
@@ -91,6 +92,7 @@
 
 (require 'init-dash)
 (require 'init-ledger)
+(require 'init-web-mode)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
