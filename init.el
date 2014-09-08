@@ -80,6 +80,7 @@
 (require 'init-clojure)
 (require 'init-common-lisp)
 (require 'init-golang)
+(require 'init-rust)
 (require 'init-jade)
 (require 'init-elixir)
 (require 'init-emmet)
