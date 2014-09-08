@@ -83,6 +83,7 @@
 (require 'init-jade)
 (require 'init-elixir)
 (require 'init-emmet)
+(require 'init-help-functions)
 
 
 (when *spell-check-support-enabled*
