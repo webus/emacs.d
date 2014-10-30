@@ -9,6 +9,16 @@
   (insert "{% block content %}\n")
   (insert "{% endblock %}\n"))
 
+(defun angular-post ()
+  "Make http.post request."
+  (interactive)
+  (insert "$http.post('/some-url',{data:'hello'}).success(function(data){}).error(function(data){});\n"))
+
+(defun angular-get ()
+  "Make http.get request."
+  (interactive)
+  (insert "$http.get('/some-url').success(function(data){}).error(function(data){});\n"))
+
 
 (defun django-model-imports (model_name)
   "MODEL_NAME."
