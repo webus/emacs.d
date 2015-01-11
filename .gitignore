@@ -28,4 +28,11 @@ site-lisp/package/
 /.bookmarks.el
 /history
 /helm-adaptive-history
+/thumbs/
+/emms/
+/.smex-items
+/image-dired/
+/eshell
+/.cask/
+/.sx/
 .python-environments
