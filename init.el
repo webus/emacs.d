@@ -80,6 +80,7 @@
 (require 'init-html)
 (require 'init-css)
 (require 'init-haml)
+(require 'init-slim)
 (require 'init-python-mode)
 (require 'init-haskell)
 (require 'init-ruby-mode)
