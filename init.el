@@ -95,6 +95,7 @@
   (require 'init-clojure-cider))
 (require 'init-common-lisp)
 (require 'init-golang)
+(require 'init-perspective)
 (require 'init-rust)
 (require 'init-jade)
 (require 'init-elixir)

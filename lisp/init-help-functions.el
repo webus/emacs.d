@@ -19,6 +19,25 @@
   (interactive)
   (insert "$http.get('/some-url').success(function(data){}).error(function(data){});\n"))
 
+(defun django-bootstrap-pagination ()
+  "Create pagination block."
+  (interactive)
+  (insert "{% load easy_get %}")
+  (insert "{% if is_paginated %}")
+  (insert "<ul class='pagination pagination-centered'>")
+  (insert "{% if page_obj.has_previous %}")
+  (insert "<li><a href='{% append_to_get page=1 %}'><<</a></li>")
+  (insert "<li><a href='{% append_to_get page=page_obj.previous_page_number %}'><</a></li>")
+  (insert "{% endif %}")
+  (insert "<li class='active'><a href='{% append_to_get page=page_obj.number %}'>{{page_obj.number}}</a></li>")
+  (insert "{% if page_obj.has_next %}")
+  (insert "<li><a href='{% append_to_get page=page_obj.next_page_number %}'>></a></li>")
+  (insert "<li><a href='{% append_to_get page=page_obj.paginator.num_pages %}'>>></a></li>")
+  (insert "{% endif %}")
+  (insert "</ul>")
+  (insert "{% endif %}")
+  )
+
 (defun angular-controller-create (controller_name app_name)
   "CONTROLLER_NAME.  APP_NAME."
   (interactive "sController name ? \nsApplication name ? ")
@@ -27,6 +46,15 @@
     (append-to-file "'use strict';\n\n" nil controller_file)
     (append-to-file (format "angular.module('%s').controller('%s',['$scope','$http',function($scope,$http){}]);\n" app_name controller_name) nil controller_file)
     ))
+
+(defun angular-app-init (application_name)
+  "APPLICATION_NAME."
+  (interactive "sApplication name ?")
+  (insert "'use strict';\n")
+  (insert (format "angular.module('coolteamApp',[]);\n" application_name))
+  (insert "angular.module('coolteamApp').config(function($httpProvider) {\n")
+  (insert "  return $httpProvider.defaults.headers.post['X-CSRFToken'] = $('meta[name=csrfmiddlewaretoken]').attr('content');")
+  (insert "});"))
 
 (defun django-model-imports (model_name)
   "MODEL_NAME."
@@ -122,6 +150,18 @@
 
 
 (byte-compile 'django-make-command)
+
+; http://stackoverflow.com/questions/3417438/closing-all-other-buffers-in-emacs
+(defun close-all-buffers ()
+  "Close all buffers."
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode `dired-mode) default-directory (buffer-file-name))))
+    (when filename (kill-new filename) (message "Copied buffer file name %s to the clipboard." filename))))
 
 (provide 'init-help-functions)
 ;;; init-help-functions.el ends here
