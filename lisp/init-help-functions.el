@@ -75,6 +75,12 @@
   (interactive)
   (insert "import ipdb; ipdb.set_trace()"))
 
+(defun golang-map-key-exists (dict_name key_name)
+  "DICT_NAME KEY_NAME."
+  (interactive "sDict name ? \nsKey name ? ")
+  (insert (format "if val, ok := %s[\"%s\"]; ok {}" dict_name key_name))
+  )
+
 (defun django-override-get-context-data (class_name)
   "CLASS_NAME."
   (interactive "sClass name ? ")
