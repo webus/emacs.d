@@ -20,6 +20,7 @@ config adds improved defaults and extended support for the following:
 * Erlang
 * Common Lisp (with Slime)
 * Go (golang)
+* Project browser (based on neotree, just press [F8] key)
 
 In particular, there's a nice config for *tab autocompletion*, and
 flycheck is used to immediately highlight syntax errors in Ruby, HAML,
