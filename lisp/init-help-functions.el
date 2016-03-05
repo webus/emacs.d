@@ -19,6 +19,16 @@
   (interactive)
   (insert "$http.get('/some-url').success(function(data){}).error(function(data){});\n"))
 
+(defun jquery-ready ()
+  "Make jquery ready function."
+  (interactive)
+  (insert "$(function(){});"))
+
+(defun helpme-js-generator ()
+  "Make coroutine for js generator."
+  (interactive)
+  (insert "co(function* () {})().catch((err) => { next(err); });"))
+
 (defun django-bootstrap-pagination ()
   "Create pagination block."
   (interactive)
@@ -46,6 +56,15 @@
     (append-to-file "'use strict';\n\n" nil controller_file)
     (append-to-file (format "angular.module('%s').controller('%s',['$scope','$http',function($scope,$http){}]);\n" app_name controller_name) nil controller_file)
     ))
+
+(defun js-default-value (variable_name default_value)
+  "VARIABLE_NAME.  DEFAULT_VALUE."
+  (interactive "sVariable name ? \nsDefault value ? ")
+  (insert (format
+           "%s = typeof(%s) !== 'undefined' ? %s: %s;"
+           variable_name variable_name variable_name default_value
+           ))
+  )
 
 (defun angular-app-init (application_name)
   "APPLICATION_NAME."
@@ -96,6 +115,13 @@
   (indent-for-tab-command)
   (insert "\n")
   )
+
+(setq org-agenda-files (list "~/src/work/global_todo.org"))
+
+(defun flask-url-for-static (filename)
+  "FILENAME."
+  (interactive "sFilename ? ")
+  (insert (format "{{url_for('static',filename='%s')}}" filename)))
 
 (defun django-make-command (command_name)
   "COMMAND_NAME."
@@ -168,6 +194,17 @@
   (interactive)
   (let ((filename (if (equal major-mode `dired-mode) default-directory (buffer-file-name))))
     (when filename (kill-new filename) (message "Copied buffer file name %s to the clipboard." filename))))
+
+;; some settings
+;; If you want the cursor to be positioned between first empty quotes after expanding:
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+;; By default, inserted markup will be indented with indent-region, according to the buffer's mode. To disable this, do:
+;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+
+;; (electric-indent-mode 1)
+
+;; disable cursor blinking
+(blink-cursor-mode 0)
 
 (provide 'init-help-functions)
 ;;; init-help-functions.el ends here

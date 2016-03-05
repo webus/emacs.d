@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: golang-log-error
+# key: goerr
+# binding: direct-keybinding
+# --
+if err != nil {
+       log.Fatal(err)
+}
+$0

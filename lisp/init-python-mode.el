@@ -3,6 +3,7 @@
 		("SConscript\\'" . python-mode))
               auto-mode-alist))
 
+(require-package 'python-mode)
 (require-package 'pip-requirements)
 (require-package 'jedi)
 
