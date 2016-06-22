@@ -1,7 +1,6 @@
 (require-package 'typescript-mode)
 (require-package 'company)
 (require-package 'tide)
-(require-package 'flycheck-typescript-tslint)
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup))
 (add-hook 'typescript-mode-hook
