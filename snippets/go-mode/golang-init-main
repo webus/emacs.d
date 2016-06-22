@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: golang-init-main
+# key: gomain
+# binding: direct-keybinding
+# --
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println("Hello")
+}

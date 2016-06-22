@@ -102,6 +102,7 @@
 (require 'init-rust)
 (require 'init-jade)
 (require 'init-elixir)
+(require 'init-typescript)
 (require 'init-emmet)
 (require 'init-help-functions)
 

@@ -3,7 +3,6 @@
 # key: goerr
 # binding: direct-keybinding
 # --
-if err != nil {
-       log.Fatal(err)
+if $1 != nil {
+       log.Fatal($0)
 }
-$0
