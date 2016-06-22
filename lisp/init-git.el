@@ -2,7 +2,6 @@
 ;; TODO: smerge-mode
 (require-package 'magit)
 (require-package 'git-blame)
-(require-package 'git-commit-mode)
 (require-package 'git-rebase-mode)
 (require-package 'gitignore-mode)
 (require-package 'gitconfig-mode)
